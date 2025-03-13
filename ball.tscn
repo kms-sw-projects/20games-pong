@@ -1,8 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfqrtffml7lxa"]
+[gd_scene load_steps=3 format=3 uid="uid://bfqrtffml7lxa"]
 
 [ext_resource type="Script" uid="uid://cfk3ifnqc1arg" path="res://ball.gd" id="1_x8fbi"]
-[ext_resource type="AudioStream" uid="uid://cin668g41utl2" path="res://ball_bounce.mp3" id="2_41u45"]
-[ext_resource type="AudioStream" uid="uid://b4f5jqiy2uosd" path="res://whistle.mp3" id="3_ktgx5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cbx31"]
 radius = 24.0
@@ -23,7 +21,7 @@ shape = SubResource("CircleShape2D_cbx31")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="BounceSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_41u45")
+visible = false
 
 [node name="ScoreSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_ktgx5")
+visible = false
