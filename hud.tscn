@@ -1,0 +1,104 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnouj2jn04d02"]
+
+[ext_resource type="Script" uid="uid://dfi3spmemne8f" path="res://hud.gd" id="1_37p78"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_37p78")
+
+[node name="GameTitle" type="Label" parent="."]
+offset_left = 2.0
+offset_top = 119.0
+offset_right = 799.0
+offset_bottom = 234.0
+theme_override_font_sizes/font_size = 65
+text = "PONG"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.5
+offset_top = -37.5
+offset_right = 151.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Single Player"
+
+[node name="MPButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.5
+offset_top = 60.5
+offset_right = 151.5
+offset_bottom = 135.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Two Players"
+
+[node name="Player1_score" type="Label" parent="."]
+visible = false
+offset_right = 120.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 32
+text = "000"
+horizontal_alignment = 1
+
+[node name="Player2_score" type="Label" parent="."]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -120.0
+offset_bottom = 50.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 32
+text = "000"
+horizontal_alignment = 1
+
+[node name="Message" type="Label" parent="."]
+visible = false
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = 169.0
+offset_right = 106.0
+offset_bottom = 236.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Message"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoredMessage" type="RichTextLabel" parent="."]
+visible = false
+z_index = 2
+offset_left = 105.0
+offset_top = 238.0
+offset_right = 757.0
+offset_bottom = 336.0
+theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/bold_font_size = 64
+bbcode_enabled = true
+text = "[b][color=red]Player X scored ![/color][/b]"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MPButton" to="." method="_on_mp_button_pressed"]

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfqrtffml7lxa"]
+
+[ext_resource type="Script" uid="uid://cfk3ifnqc1arg" path="res://ball.gd" id="1_x8fbi"]
+[ext_resource type="AudioStream" uid="uid://cin668g41utl2" path="res://ball_bounce.mp3" id="2_41u45"]
+[ext_resource type="AudioStream" uid="uid://b4f5jqiy2uosd" path="res://whistle.mp3" id="3_ktgx5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cbx31"]
+radius = 24.0
+
+[node name="RigidBody2D" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_x8fbi")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-12, -12)
+scale = Vector2(0.285714, 0.285714)
+polygon = PackedVector2Array(0, 45, 1, 33, 6, 23, 11, 15, 24, 6, 34, 3, 46, 2, 58, 5, 68, 11, 77, 20, 82, 32, 84, 46, 83, 57, 78, 66, 69, 76, 63, 80, 52, 85, 44, 86, 33, 85, 22, 81, 12, 74, 6, 65, 2, 55)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_cbx31")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="BounceSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_41u45")
+
+[node name="ScoreSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ktgx5")

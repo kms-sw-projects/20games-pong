@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnftnamwiih3a"]
+
+[ext_resource type="Script" uid="uid://evtll0j5ibv0" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cnouj2jn04d02" path="res://hud.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://3pe01grdwxvq" path="res://arena.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://dkvaprstkmq5d" path="res://player.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://bfqrtffml7lxa" path="res://ball.tscn" id="5_lquwl"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_0xm2m")
+
+[node name="StartScreen" parent="." instance=ExtResource("1_ig7tw")]
+
+[node name="Player1" parent="." instance=ExtResource("4_1bvp3")]
+z_index = 1
+position = Vector2(6, 240)
+
+[node name="Player2" parent="." instance=ExtResource("4_1bvp3")]
+z_index = 1
+position = Vector2(794, 240)
+
+[node name="Ball" parent="." instance=ExtResource("5_lquwl")]
+z_index = 1
+position = Vector2(399, 283)
+contact_monitor = true
+max_contacts_reported = 2
+
+[node name="Arena" parent="." instance=ExtResource("3_h2yge")]
+
+[connection signal="start_game" from="StartScreen" to="." method="new_game"]
+[connection signal="start_mp_game" from="StartScreen" to="." method="new_mp_game"]
+[connection signal="left_screen_left" from="Ball" to="." method="_on_ball_left_screen_left"]
+[connection signal="left_screen_right" from="Ball" to="." method="_on_ball_left_screen_right"]

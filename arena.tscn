@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://3pe01grdwxvq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g21bf"]
+size = Vector2(800, 14)
+
+[sub_resource type="Gradient" id="Gradient_g21bf"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.211268, 0.464789, 0.71831, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ubfh8"]
+gradient = SubResource("Gradient_g21bf")
+width = 24
+
+[node name="Arena" type="Node2D"]
+
+[node name="UpperWall" type="StaticBody2D" parent="."]
+z_index = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpperWall"]
+z_index = 1
+position = Vector2(400, 2)
+shape = SubResource("RectangleShape2D_g21bf")
+
+[node name="UpperWall_Line" type="Line2D" parent="UpperWall"]
+z_index = 1
+points = PackedVector2Array(0, 0, 800, 0)
+width = 5.0
+
+[node name="LowerWall" type="StaticBody2D" parent="."]
+z_index = 1
+
+[node name="LowerWall_Line" type="Line2D" parent="LowerWall"]
+z_index = 1
+points = PackedVector2Array(0, 600, 800, 600)
+width = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LowerWall"]
+z_index = 1
+position = Vector2(400, 599)
+shape = SubResource("RectangleShape2D_g21bf")
+
+[node name="Divider" type="Line2D" parent="."]
+physics_interpolation_mode = 2
+modulate = Color(1, 1, 1, 0.172549)
+texture_repeat = 2
+position = Vector2(16, 0)
+points = PackedVector2Array(384, 8, 384, 592)
+width = 4.0
+texture = SubResource("GradientTexture1D_ubfh8")
+texture_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+custom_minimum_size = Vector2(12, 12)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_right = 800.0
+offset_bottom = 602.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
